@@ -677,69 +677,97 @@ a:hover {
 }
 
 /* Hero Right Column: Developer Photo (Hair 100% visible) */
+/* ==========================================================================
+   HERO PORTRAIT WITH TECH-HALO & FLOATING LEVITATION ANIMATION
+   ========================================================================== */
 .profile-wrapper {
     position: relative;
-    max-width: 440px;
+    width: 320px;
+    height: 320px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: floatHeroPortrait 6s ease-in-out infinite;
 }
 
+@keyframes floatHeroPortrait {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Dynamic Rotating Neon Glow Ring Behind Circle */
+.profile-glow-ring {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, #2563eb, #0ea5e9, #38bdf8, #10b981, #6366f1, #2563eb);
+    filter: blur(10px);
+    opacity: 0.8;
+    animation: rotateHalo 8s linear infinite;
+    z-index: 1;
+}
+
+@keyframes rotateHalo {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Portrait Card Container with Rotating Chromatic Gradient Border */
 .profile-card {
     position: relative;
     z-index: 2;
-    padding: 6px;
+    width: 310px;
+    height: 310px;
+    padding: 5px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    background: conic-gradient(from 180deg, #38bdf8, #2563eb, #10b981, #0ea5e9, #38bdf8);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45), 0 0 25px rgba(37, 99, 235, 0.35);
+    animation: rotateBorderGlow 12s linear infinite;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Hair properly visible via object-position: center top */
+@keyframes rotateBorderGlow {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* Hair 100% visible: center top alignment with inner border */
 .profile-img {
-    width: 320px;
-    height: 320px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center top;
     border-radius: 50%;
     display: block;
-    border: 4px solid var(--bg-secondary);
+    border: 4px solid var(--bg-card);
+    transition: transform 0.4s ease;
 }
 
-/* Tech Badges */
-.hero-floating-badge {
-    position: absolute;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    border-radius: 50px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 0.84rem;
-    color: var(--text-primary);
-    pointer-events: none;
+.profile-wrapper:hover .profile-card {
+    transform: scale(1.04);
+    box-shadow: 0 16px 45px rgba(37, 99, 235, 0.5), 0 0 35px rgba(14, 165, 233, 0.4);
 }
-
-.h-badge-1 { top: 10px; left: -10px; border-color: rgba(249, 115, 22, 0.5); }
-.h-badge-2 { top: 10px; right: -10px; border-color: rgba(59, 130, 246, 0.5); }
-.h-badge-3 { bottom: 20px; left: -15px; border-color: rgba(234, 179, 8, 0.5); }
-.h-badge-4 { bottom: 20px; right: -15px; border-color: rgba(34, 197, 94, 0.5); }
 
 @media (max-width: 576px) {
-    .profile-img { width: 240px; height: 240px; }
-    .h-badge-1 { top: 0; left: 0; }
-    .h-badge-2 { top: 0; right: 0; }
-    .h-badge-3 { bottom: 0; left: 0; }
-    .h-badge-4 { bottom: 0; right: 0; }
+    .profile-wrapper { width: 250px; height: 250px; }
+    .profile-card { width: 240px; height: 240px; }
 }
 
 /* --------------------------------------------------------------------------
-   6. ABOUT ME SECTION (PHOTO HIGHLIGHTED WITH HAIR 100% VISIBLE)
+   6. ABOUT ME SECTION (CLEAN FULL PORTRAIT, ZERO CUTTING, NO OVERLAYS)
    -------------------------------------------------------------------------- */
 .about-photo-card {
     padding: 22px;
@@ -751,34 +779,29 @@ a:hover {
 
 .about-photo-wrapper {
     position: relative;
+    max-width: 260px;
+    margin: 0 auto 16px auto;
     border-radius: 16px;
     overflow: hidden;
     border: 2px solid var(--border-color);
-    margin-bottom: 16px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    background: var(--bg-card);
 }
 
-/* Hair 100% visible: center top alignment */
+/* Full portrait visibility (3:4 ratio) with complete hair and body */
 .about-photo-img {
     width: 100%;
-    height: 380px;
+    height: auto;
+    max-height: 330px;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: center top;
     display: block;
+    transition: transform 0.3s ease;
 }
 
-.about-photo-badge {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    right: 12px;
-    background: rgba(11, 15, 25, 0.92);
-    border: 1px solid var(--border-color);
-    padding: 8px 12px;
-    border-radius: 10px;
-    font-size: 0.84rem;
-    font-weight: 700;
-    color: var(--text-primary);
+.about-photo-wrapper:hover .about-photo-img {
+    transform: scale(1.03);
 }
 
 .about-info-card {
