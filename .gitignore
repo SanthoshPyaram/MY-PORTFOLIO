@@ -19,4 +19,8 @@ yarn-error.log*
 
 # Lab documents & scripts
 *.docx
+*.pdf
 build_lab_document.py
+capture_sections.py
+screenshots/
+*.png
