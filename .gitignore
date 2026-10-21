@@ -44,3 +44,6 @@ __screenshots__/
 Thumbs.db
 screenshots/
 capture_sections.py
+
+capture_all_screenshots.py
+capture_resume_parts.py
