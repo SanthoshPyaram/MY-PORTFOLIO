@@ -167,18 +167,19 @@ def create_report():
     count_p = doc.add_paragraph()
     count_p.paragraph_format.space_before = Pt(0)
     count_p.paragraph_format.space_after = Pt(10)
-    c_run = count_p.add_run("7 core Angular & TypeScript production source modules are included in this complete assignment submission:")
+    c_run = count_p.add_run("8 core Angular & TypeScript production source modules are included in this complete assignment submission:")
     c_run.font.name = "Arial"
     c_run.font.size = Pt(9.5)
     c_run.font.color.rgb = RGBColor(71, 85, 105)
 
     # List of Files
     file_list = [
-        ("src/app/models/portfolio.models.ts", "TypeScript interfaces for Projects, Skills, Education, Certifications, and Social Profiles"),
-        ("src/app/services/portfolio.service.ts", "Angular Injectable state service with 4 featured projects (including 2 ECS projects) and credentials"),
-        ("src/app/services/theme.service.ts", "Angular reactive theme switching service with localStorage persistence and signal-based state"),
-        ("src/app/components/projects/projects.component.ts", "Angular component rendering 4 project cards with detail modal trigger bindings"),
+        ("src/app/models/portfolio.models.ts", "TypeScript interfaces for Projects, Skills, Education, Certifications, Achievements, and Social Profiles"),
+        ("src/app/services/portfolio.service.ts", "Angular Injectable state service with 4 featured projects (including 2 ECS projects), 100% Attendance Award, and credentials"),
         ("src/app/components/skills/skills.component.ts", "Angular component rendering skill matrix, progress bars, and Embedded Systems & IoT (ECS) category"),
+        ("src/app/components/projects/projects.component.ts", "Angular component rendering 4 project cards with detail modal trigger bindings"),
+        ("src/app/components/achievements/achievements.component.ts", "Angular component rendering 100% Attendance Award (2024–2025) with ceremony photo, Hackathons, and Certifications"),
+        ("src/app/components/contact/contact.component.ts", "Angular component providing interactive contact form with validation, social handles, and direct connectivity"),
         ("src/app/components/resume-modal/resume-modal.component.ts", "Angular component rendering printable resume document with print-to-PDF handler"),
         ("src/styles.css", "Design tokens, Charcoal & Cobalt palette, glassmorphism, responsive grid, animations, and print media queries")
     ]
@@ -218,7 +219,7 @@ def create_report():
         doc,
         label="Home / Hero Section & Sticky Navigation Bar",
         image_path=r"screenshots\1_home_hero.png",
-        caption="Figure 1.1: Angular application Home hero section displaying brand navbar, developer headline, tech halo avatar, and primary action buttons.",
+        caption="Figure 1.1: Angular application Home hero section displaying brand navbar, developer headline, 100% Attendance Award chip, tech halo avatar, and primary action buttons.",
         width=Inches(6.2)
     )
 
@@ -241,23 +242,23 @@ def create_report():
         doc,
         label="About Me Section & Academic Credentials",
         image_path=r"screenshots\2_about_section.png",
-        caption="Figure 2.1: Angular application About section showcasing personal narrative, verified academic scores (9.68 CGPA, 982/1000 Intermediate, 589/600 SSC), and profile portrait.",
+        caption="Figure 2.1: Angular application About section showcasing personal narrative, verified academic scores (9.68 CGPA, 982/1000 Intermediate, 589/600 SSC), 100% Attendance Award, and profile portrait.",
         width=Inches(6.2)
     )
 
     doc.add_page_break()
 
     # =========================================================================
-    # MODULE 3: Reactive Theme Service
+    # MODULE 3: Skills Component
     # =========================================================================
-    with open("src/app/services/theme.service.ts", "r", encoding="utf-8") as f:
-        theme_code = f.read()
+    with open("src/app/components/skills/skills.component.ts", "r", encoding="utf-8") as f:
+        skills_comp_code = f.read()
 
     add_code_section(
         doc,
-        title="3. Angular Reactive Theme Switching Service",
-        filepath="src/app/services/theme.service.ts",
-        code_text=theme_code
+        title="3. Angular Skills Component & Embedded Systems (ECS) Matrix",
+        filepath="src/app/components/skills/skills.component.ts",
+        code_text=skills_comp_code
     )
 
     add_screenshot_section(
@@ -294,37 +295,60 @@ def create_report():
     doc.add_page_break()
 
     # =========================================================================
-    # MODULE 5: Skills Component
+    # MODULE 5: Achievements Component
     # =========================================================================
-    with open("src/app/components/skills/skills.component.ts", "r", encoding="utf-8") as f:
-        skills_comp_code = f.read()
+    with open("src/app/components/achievements/achievements.component.ts", "r", encoding="utf-8") as f:
+        achievements_comp_code = f.read()
 
     add_code_section(
         doc,
-        title="5. Angular Skills Component & Progress Indicators",
-        filepath="src/app/components/skills/skills.component.ts",
-        code_text=skills_comp_code
+        title="5. Angular Achievements & Certifications Component",
+        filepath="src/app/components/achievements/achievements.component.ts",
+        code_text=achievements_comp_code
     )
 
     add_screenshot_section(
         doc,
-        label="Interactive Contact Section with TypeScript Form",
-        image_path=r"screenshots\5_contact_section.png",
-        caption="Figure 5.1: Angular application Contact section featuring interactive message form with real-time field validation, contact channels, and social media connectivity.",
+        label="Achievements Section & 100% Attendance Award Ceremony Photo",
+        image_path=r"screenshots\5_achievements_section.png",
+        caption="Figure 5.1: Angular application Achievements section featuring 100% Attendance Award (Academic Year 2024–2025) with official VIT-AP University Day ceremony photograph, SIH, and certifications.",
         width=Inches(6.2)
     )
 
     doc.add_page_break()
 
     # =========================================================================
-    # MODULE 6: Resume Modal Component
+    # MODULE 6: Contact Component
+    # =========================================================================
+    with open("src/app/components/contact/contact.component.ts", "r", encoding="utf-8") as f:
+        contact_comp_code = f.read()
+
+    add_code_section(
+        doc,
+        title="6. Angular Contact Component & Form Validation",
+        filepath="src/app/components/contact/contact.component.ts",
+        code_text=contact_comp_code
+    )
+
+    add_screenshot_section(
+        doc,
+        label="Interactive Contact Section with TypeScript Form",
+        image_path=r"screenshots\6_contact_section.png",
+        caption="Figure 6.1: Angular application Contact section featuring interactive message form with real-time field validation, contact channels, and social media connectivity.",
+        width=Inches(6.2)
+    )
+
+    doc.add_page_break()
+
+    # =========================================================================
+    # MODULE 7: Resume Modal Component
     # =========================================================================
     with open("src/app/components/resume-modal/resume-modal.component.ts", "r", encoding="utf-8") as f:
         resume_comp_code = f.read()
 
     add_code_section(
         doc,
-        title="6. Angular Resume Modal Component with Print Handler",
+        title="7. Angular Resume Modal Component with Print Handler",
         filepath="src/app/components/resume-modal/resume-modal.component.ts",
         code_text=resume_comp_code
     )
@@ -332,22 +356,22 @@ def create_report():
     add_screenshot_section(
         doc,
         label="Dynamic Interactive Resume Modal View",
-        image_path=r"screenshots\6_resume_modal.png",
-        caption="Figure 6.1: Angular application Resume modal rendered dynamically with print-to-PDF formatting, exact 9.68 CGPA, and all 4 projects.",
+        image_path=r"screenshots\7_resume_modal.png",
+        caption="Figure 7.1: Angular application Resume modal rendered dynamically with print-to-PDF formatting, exact 9.68 CGPA, 100% Attendance Award, and all 4 projects.",
         width=Inches(6.2)
     )
 
     doc.add_page_break()
 
     # =========================================================================
-    # MODULE 7: Stylesheet & Design System
+    # MODULE 8: Stylesheet & Design System
     # =========================================================================
     with open("src/styles.css", "r", encoding="utf-8") as f:
         styles_code = f.read()
 
     add_code_section(
         doc,
-        title="7. Global Styles, Design Tokens & Glassmorphism System",
+        title="8. Global Styles, Design Tokens & Glassmorphism System",
         filepath="src/styles.css",
         code_text=styles_code
     )
