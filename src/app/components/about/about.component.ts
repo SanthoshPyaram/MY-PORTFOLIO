@@ -68,6 +68,13 @@ import { PortfolioService } from '../../services/portfolio.service';
                     <strong class="text-info">589 / 600 (98.17%)</strong>
                   </div>
                 </div>
+                <div class="col-12 mt-2">
+                  <div class="p-2 rounded border border-warning-subtle small text-center" style="background: rgba(245,158,11,0.12);">
+                    <i class="bi bi-award-fill text-warning me-1"></i>
+                    <strong class="text-warning">100% Attendance Award</strong>
+                    <span class="text-white-50 d-block" style="font-size: 0.72rem;">Academic Year 2024–2025 &bull; VIT-AP University</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -80,7 +87,7 @@ import { PortfolioService } from '../../services/portfolio.service';
                   <i class="bi bi-journal-code text-primary"></i> Academic Profile &amp; Technical Mission
                 </h3>
                 <p class="text-secondary leading-relaxed">
-                  I am an Integrated M.Tech in Computer Science and Engineering student at <strong>VIT-AP UNIVERSITY</strong> with a current CGPA of <strong>9.68</strong>. I have maintained a track record of academic excellence throughout my schooling and higher secondary education, scoring <strong>982 / 1000 (98.2%)</strong> in Intermediate and <strong>589 / 600 (98.17%)</strong> in SSC.
+                  I am an Integrated M.Tech in Computer Science and Engineering student at <strong>VIT-AP UNIVERSITY</strong> with a current CGPA of <strong>9.68</strong>. Recipient of the prestigious <strong>100% Attendance Award for the Academic Year 2024–2025</strong> at the 8th University Day Celebrations, demonstrating my continuous discipline, regularity, and commitment to learning. I have maintained a track record of academic excellence throughout my schooling and higher secondary education, scoring <strong>982 / 1000 (98.2%)</strong> in Intermediate and <strong>589 / 600 (98.17%)</strong> in SSC.
                 </p>
                 <p class="text-secondary leading-relaxed">
                   My technical interests span modern full-stack web applications with Angular &amp; TypeScript, distributed ledger systems via Hedera Hashgraph, and embedded system engineering with hardware-software integration for assistive and environmental applications.

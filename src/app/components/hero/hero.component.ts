@@ -36,6 +36,9 @@ import { PortfolioService } from '../../services/portfolio.service';
                 <i class="bi bi-mortarboard-fill text-success"></i> 9.68 CGPA &bull; VIT-AP
               </span>
               <span class="highlight-chip">
+                <i class="bi bi-award-fill text-warning"></i> 100% Attendance Award (2024–2025)
+              </span>
+              <span class="highlight-chip">
                 <i class="bi bi-patch-check-fill text-info"></i> Hedera Hashgraph Certified
               </span>
               <span class="highlight-chip">

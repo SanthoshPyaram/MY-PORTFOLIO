@@ -254,9 +254,19 @@ export class PortfolioService {
 
   readonly achievements: Achievement[] = [
     {
+      title: '100% Attendance Award (Academic Year 2024–2025)',
+      badge: 'University Honor',
+      badgeClass: 'bg-warning-subtle text-warning border border-warning-subtle',
+      icon: 'bi-award-fill',
+      iconBoxStyle: 'color: #f59e0b; border-color: rgba(245,158,11,0.4); background: rgba(245,158,11,0.15);',
+      description: 'Conferred the prestigious 100% Attendance Award for the academic year 2024–2025 by VIT-AP University during the 8th University Day Celebrations, recognizing exceptional consistency, discipline, and commitment to academic excellence.',
+      tags: ['100% Attendance', 'VIT-AP University', 'Academic Excellence', 'Discipline & Consistency'],
+      image: 'assets/award-attendance.jpg'
+    },
+    {
       title: 'Smart India Hackathon (SIH)',
       badge: 'National Hackathon',
-      badgeClass: 'bg-warning-subtle text-warning border border-warning-subtle',
+      badgeClass: 'bg-primary-subtle text-primary border border-primary-subtle',
       icon: 'bi-trophy-fill',
       description: "Selected participant in India's premier nationwide open innovation initiative. Collaborated with a multidisciplinary team to ideate, architect, and prototype a software solution targeting a critical real-world national problem statement.",
       tags: ['Problem Analysis', 'Rapid Prototyping', 'Team Collaboration', 'Jury Evaluation']

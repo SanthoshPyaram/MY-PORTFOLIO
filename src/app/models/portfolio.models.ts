@@ -48,6 +48,7 @@ export interface Achievement {
   iconBoxStyle?: string;
   description: string;
   tags: string[];
+  image?: string;
 }
 
 export interface Education {

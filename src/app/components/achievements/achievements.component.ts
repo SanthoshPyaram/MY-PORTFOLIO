@@ -14,34 +14,61 @@ import { PortfolioService } from '../../services/portfolio.service';
           <span class="section-badge"><i class="bi bi-award-fill"></i> Milestones</span>
           <h2 class="section-title">Achievements &amp; <span class="gradient-text">Certifications</span></h2>
           <p class="section-subtitle">
-            Recognitions, professional credentials including Hedera Hashgraph Blockchain, and competitive programming profiles.
+            Recognitions, academic honors from VIT-AP University, professional certifications including Hedera Hashgraph Blockchain, and competitive programming profiles.
           </p>
         </div>
 
-        <!-- 1. Major Hackathons & Competitions -->
+        <!-- 1. Major Honors & Competitions -->
         <h3 class="h4 mb-4 d-flex align-items-center gap-2">
-          <i class="bi bi-trophy-fill text-warning"></i> Hackathons &amp; Honors
+          <i class="bi bi-trophy-fill text-warning"></i> Honors, Awards &amp; Hackathons
         </h3>
 
         <div class="row g-4 mb-5">
           @for (ach of portfolio.achievements; track ach.title) {
-            <div class="col-lg-6">
-              <div class="glass-card achievement-card">
-                <div class="d-flex justify-content-between align-items-start mb-2">
-                  <div class="achievement-icon-box" [attr.style]="ach.iconBoxStyle || null">
-                    <i class="bi" [ngClass]="ach.icon"></i>
+            <div [ngClass]="ach.image ? 'col-12' : 'col-lg-6'">
+              <div class="glass-card achievement-card" [class.p-4]="ach.image">
+                @if (ach.image) {
+                  <div class="row align-items-center g-4">
+                    <div class="col-md-7">
+                      <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div class="achievement-icon-box" [attr.style]="ach.iconBoxStyle || null">
+                          <i class="bi" [ngClass]="ach.icon"></i>
+                        </div>
+                        <span class="badge px-3 py-1" [ngClass]="ach.badgeClass">
+                          {{ ach.badge }}
+                        </span>
+                      </div>
+                      <h4 class="h5 mb-2">{{ ach.title }}</h4>
+                      <p class="text-secondary small mb-3">{{ ach.description }}</p>
+                      <div class="d-flex flex-wrap gap-2">
+                        @for (t of ach.tags; track t) {
+                          <span class="badge bg-black-subtle border border-secondary small">{{ t }}</span>
+                        }
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="rounded-3 overflow-hidden border border-secondary shadow-sm">
+                        <img [src]="ach.image" [alt]="ach.title + ' at VIT-AP University Day'" class="img-fluid w-100" style="object-fit: cover; max-height: 250px;">
+                      </div>
+                    </div>
                   </div>
-                  <span class="badge px-3 py-1" [ngClass]="ach.badgeClass">
-                    {{ ach.badge }}
-                  </span>
-                </div>
-                <h4 class="h5 mb-2">{{ ach.title }}</h4>
-                <p class="text-secondary small mb-3">{{ ach.description }}</p>
-                <div class="d-flex flex-wrap gap-2">
-                  @for (t of ach.tags; track t) {
-                    <span class="badge bg-black-subtle border border-secondary small">{{ t }}</span>
-                  }
-                </div>
+                } @else {
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <div class="achievement-icon-box" [attr.style]="ach.iconBoxStyle || null">
+                      <i class="bi" [ngClass]="ach.icon"></i>
+                    </div>
+                    <span class="badge px-3 py-1" [ngClass]="ach.badgeClass">
+                      {{ ach.badge }}
+                    </span>
+                  </div>
+                  <h4 class="h5 mb-2">{{ ach.title }}</h4>
+                  <p class="text-secondary small mb-3">{{ ach.description }}</p>
+                  <div class="d-flex flex-wrap gap-2">
+                    @for (t of ach.tags; track t) {
+                      <span class="badge bg-black-subtle border border-secondary small">{{ t }}</span>
+                    }
+                  </div>
+                }
               </div>
             </div>
           }
@@ -99,4 +126,3 @@ import { PortfolioService } from '../../services/portfolio.service';
 export class AchievementsComponent {
   portfolio = inject(PortfolioService);
 }
-
